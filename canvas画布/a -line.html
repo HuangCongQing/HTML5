@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>hello canvas</title>
+    <style>
+        body {
+            background: #ddd;
+        }
+       
+    </style>
+</head>
+<body>
+	  <canvas id="myCanvas" width="200" height="200" style="border:solid 1px #CCC;">
+	您的浏览器不支持canvas，建议使用最新版的Chrome
+	</canvas>
+
+	<!-- <script>
+	var c = document.getElementById("myCanvas");
+	var ctx = c.getContext("2d"); //获取该canvas的2D绘图环境对象
+	ctx.moveTo(10,10);   //定义绘画开始的位置
+	ctx.lineTo(150,50);  //画一条直线，结束点坐标是x=150,y=50
+	ctx.stroke();  //描边
+</script> -->
+
+<!-- <script>
+	var c = document.getElementById("myCanvas");
+	var ctx = c.getContext("2d"); //获取该canvas的2D绘图环境对象
+	ctx.moveTo(0,0);   //咱把“画笔”移到坐标(0,0)
+	ctx.lineTo(150,50);  //从上个点(0,0)画一条直线，结束点坐标是(150,50)
+	ctx.lineTo(20,100);  //从上个点(150,50)继续画一条直线，结束点坐标是(20,100)
+	ctx.moveTo(90,90);   //咱把“画笔”移到坐标(90,90)
+	ctx.lineTo(80,150);  //从上个点(60,60)继续画一条直线，结束点坐标是(80,150)
+	ctx.strokeStyle = "red";    //设定描边颜色为红色，只要写在.stroke()方法前面即可
+	ctx.stroke();  //描边
+</script> -->
+
+<!-- <script>
+  var c = document.getElementById("myCanvas");
+  var ctx = c.getContext("2d"); 
+  ctx.moveTo(0,0);   
+  ctx.lineTo(150,50);  
+  ctx.lineTo(20,100); 
+  ctx.strokeStyle = "blue";    //设定描边颜色为蓝色
+  ctx.stroke();  
+   
+  ctx.moveTo(90,90); 
+  ctx.lineTo(80,150);  
+  ctx.strokeStyle = "red";    //设定描边颜色为红色
+  ctx.stroke();  
+</script> -->
+
+<!-- <script>
+	var c = document.getElementById("myCanvas");
+	var ctx = c.getContext("2d"); 
+	ctx.moveTo(0,0);   
+	ctx.lineTo(150,50); 
+	ctx.lineTo(20,100); 
+
+	var grd = ctx.createLinearGradient(0,0,170,0);  //定义线性渐变对象，设定渐变线起始点和结束点坐标，坐标格式为(起始点x,起始点y,结束点x,结束点y)
+	grd.addColorStop(0,"black");   //定义渐变线起点颜色
+	grd.addColorStop(0.5,"red");   //定义渐变线中间点的颜色
+	grd.addColorStop(1,"yellow");  //定义渐变线结束点的颜色
+
+	ctx.strokeStyle = grd;   //将渐变对象赋值给strokeStyle
+	ctx.stroke();  //描边
+</script> -->
+
+<!-- <script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d"); 
+
+    pic = new Image();   //创建图片对象，或者 pic = document.createElement('img')
+    pic.src = "http://images.cnblogs.com/cnblogs_com/vajoy/558870/o_5.jpg"; 
+    pic.onload = patternFill;     //在图片加载完成时执行绘图函数
+
+    function patternFill() {     //定义绘图函数
+        var redTexture = ctx.createPattern(pic, "repeat");   
+        ctx.strokeStyle = redTexture; 
+        ctx.moveTo(80,10);
+        ctx.lineTo(10,90);
+        ctx.lineWidth = 8;    //定义线段粗度为8像素
+        ctx.stroke();
+    }
+    
+</script> -->
+<!-- 
+
+<script>
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.lineWidth=10;
+
+ctx.beginPath();
+ctx.lineCap="butt";
+ctx.moveTo(20,10);
+ctx.lineTo(200,60);
+ctx.strokeStyle="red";
+ctx.stroke();
+
+ctx.beginPath();
+ctx.lineCap="round";
+ctx.moveTo(30,90);
+ctx.lineTo(200,40);
+ctx.strokeStyle="blue";
+ctx.stroke();
+
+ctx.beginPath();
+ctx.lineCap="square";
+ctx.moveTo(10,30);
+ctx.lineTo(200,80);
+ctx.strokeStyle="green";
+ctx.stroke();
+</script> -->
+
+<canvas id="myCanvas" width="200" height="220" style="border:1px solid #DDD;">
+</canvas>
+
+<script>
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+
+ctx.lineWidth=13;
+ctx.lineJoin="bevel";
+ctx.moveTo(20,20);
+ctx.lineTo(100,50);
+ctx.lineTo(20,80);
+ctx.strokeStyle="red";
+ctx.stroke();
+
+ctx.beginPath();
+ctx.lineJoin="round";
+ctx.moveTo(20,60);
+ctx.lineTo(100,90);
+ctx.lineTo(20,150);
+ctx.strokeStyle="green";
+ctx.stroke();
+
+ctx.beginPath();
+ctx.lineJoin="miter";
+ctx.moveTo(20,90);
+ctx.lineTo(100,150);
+ctx.lineTo(20,200);
+ctx.strokeStyle="blue";
+ctx.stroke();
+</script>
+
+
+</body>
+</html>

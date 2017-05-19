@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>今天我们主要是学习如何绘制圆弧和贝塞尔曲线。</title>
+</head>
+<body>
+		
+	<canvas id="myCanvas" width="400" height="400" style="border:solid 1px #CCC;">
+	您的浏览器不支持canvas，建议使用最新版的Chrome
+	</canvas>
+
+	<script>
+	// var c = document.getElementById("myCanvas");
+	// var ctx = c.getContext("2d"); //获取该canvas的2D绘图环境对象
+	// ctx.arc( 80, 80, 40, 1/6*Math.PI, 1/2*Math.PI);
+	// ctx.stroke();  //描边
+
+	//开始角和结束角也可以是负值，则角度从0度开始以逆时针方式获取：
+	// var c = document.getElementById("myCanvas");
+	// var ctx = c.getContext("2d"); //获取该canvas的2D绘图环境对象
+	// ctx.arc( 80, 80, 40, -1/6*Math.PI, -1/2*Math.PI);
+	// ctx.stroke();  //描边
+
+	//我们可以很轻松地来绘制一个完整的圆，将起始角设为0度，结束角设为360度（2*Math.PI）即可：
+	// var c = document.getElementById("myCanvas");
+	// var ctx = c.getContext("2d"); //获取该canvas的2D绘图环境对象
+	// ctx.arc( 80, 80, 40, 0, 2*Math.PI);
+
+	// ctx.lineWidth = 3;  //描边宽度为3px
+	// ctx.strokeStyle = "yellow";
+	// ctx.stroke();  //描边
+	// ctx.fillStyle = "#4DA6FF";
+	// ctx.fill(); //填充颜色
+
+
+//我们先不管什么“连接两条线段”的事情，单纯看下arcTo()绘制了怎样的一条圆弧：
+
+	// var c = document.getElementById("myCanvas");
+	// var ctx = c.getContext("2d"); //获取该canvas的2D绘图环境对象
+	// ctx.moveTo(20,20);           // 创建开始点
+	// ctx.arcTo(60,20,60,60,40); // 创建圆弧路径
+	// ctx.stroke();                
+
+
+
+//贝塞尔曲线
+	// var c = document.getElementById("myCanvas");
+	// var ctx = c.getContext("2d"); //获取该canvas的2D绘图环境对象
+	// ctx.moveTo(20,20);   //确定起始点
+	// ctx.bezierCurveTo( 20, 100, 200, 100, 200, 20 );
+	// ctx.stroke();  //描边
+
+//quadraticCurveTo() 方法来解决，它称作“二次方贝塞尔曲线”，语法为
+
+//ctx.quadraticCurveTo( CEx, CEy, Ex, Ey );
+	var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d"); //获取该canvas的2D绘图环境对象
+ctx.moveTo(52,37);   //确定起始点
+ctx.quadraticCurveTo( 45, 175, 172, 157 );   //绘制第一条曲线
+ctx.bezierCurveTo( 298, 140, 337, 201, 312, 236 );  //绘制第二条曲线
+ctx.stroke();  //描边
+
+
+	</script>
+</body>
+</html>

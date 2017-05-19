@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>canvas矩阵和多边形</title>
+</head>
+<body>
+	<canvas id="myCanvas" width="200" height="200" style="border:solid 1px #CCC;">
+您的浏览器不支持canvas，建议使用最新版的Chrome
+</canvas>
+
+<script>
+// var c = document.getElementById("myCanvas");
+// var ctx = c.getContext("2d"); //获取该canvas的2D绘图环境对象
+// ctx.fillRect(10,10,50,50);   //从画布上的(10,10)坐标点为起始点，绘制一个宽高均为50px的实心矩形
+// ctx.strokeRect(70,10,50,50);   //从画布上的(70,10)坐标点为起始点，绘制一个宽高均为50px的描边矩形
+
+
+// Rect( x, y, width, height ) 的方法创建矩形路径
+// var c = document.getElementById("myCanvas");
+// var ctx = c.getContext("2d"); //获取该canvas的2D绘图环境对象
+// ctx.rect(20,20,150,100);  //创建矩形路径
+// ctx.stroke();    //描边
+// ctx.beginPath();    //重置画笔，避免污染
+// ctx.rect(50,90,50,50);  //创建矩形路径
+// ctx.fill();    //填充
+
+//上色
+
+// var c = document.getElementById("myCanvas");
+// var ctx = c.getContext("2d"); //获取该canvas的2D绘图环境对象
+
+// var grd = ctx.createRadialGradient(35,35,0,35,35,36);  //定义放射状渐变对象，设定渐变线起始点和结束点坐标，坐标格式为(起始点x,起始点y,结束点x,结束点y)
+// grd.addColorStop(0,"yellow");   //定义渐变线起点颜色
+// grd.addColorStop(0.5,"blue");   //定义渐变线中间点的颜色
+// grd.addColorStop(1,"red");  //定义渐变线结束点的颜色
+// ctx.fillStyle = grd;   //将放射状渐变对象赋值给fillStyle
+// ctx.fillRect(10,10,50,50);   //从画布上的(10,10)坐标点为起始点，绘制一个宽高均为50px的实心矩形
+
+// ctx.beginPath();  //重置画笔，这是个好习惯
+// ctx.strokeStyle = "green";   //定义描边颜色为绿色
+// ctx.strokeRect(70,10,50,50);   //从画布上的(70,10)坐标点为起始点，绘制一个宽高均为50px的描边矩形
+
+// 介绍过的放射状渐变方法 `createRadialGradient` 
+// var c = document.getElementById("myCanvas");
+// var ctx = c.getContext("2d"); //获取该canvas的2D绘图环境对象
+
+// var grd = ctx.createRadialGradient(70,70,20,70,70,100);  //定义放射状渐变对象，设定起始圆和结束圆中点重叠，且起始圆半径为0
+// grd.addColorStop(0,"yellow");   //定义渐变线起点颜色
+// grd.addColorStop(0.5,"blue");   //定义渐变线中间点的颜色
+// grd.addColorStop(1,"rgba(255,0,0,0)");  //定义渐变线结束点的颜色，其中颜色透明度为0
+// ctx.fillStyle = grd;   //将放射状渐变对象赋值给fillStyle
+// ctx.fillRect(0,0,c.width,c.height);   //绘制一个跟画布大小一样的实心矩形
+
+//起始圆超出结束圆
+// var c = document.getElementById("myCanvas");
+// var ctx = c.getContext("2d"); //获取该canvas的2D绘图环境对象
+
+// var grd = ctx.createRadialGradient(60,60,50,70,70,50);  //起始圆的左边超出了结束圆内部区域
+// grd.addColorStop(0,"yellow");   
+// grd.addColorStop(0.5,"blue");  
+// grd.addColorStop(1,"rgba(255,0,0,0)");  
+// ctx.fillStyle = grd;   
+// ctx.fillRect(0,0,c.width,c.height);  
+
+
+//RadialGradient上色原理
+   // var canvas = document.getElementById("myCanvas");
+   //          if (canvas == null)
+   //          return false;
+   //          var context = canvas.getContext('2d');
+   //          var g1 = context.createRadialGradient(100, 150, 10, 300, 150, 50);
+   //          g1.addColorStop(0.1, 'rgb(255,0,0)');
+   //          g1.addColorStop(0.5, 'rgb(0,255,0)');
+   //          g1.addColorStop(1, 'rgb(0,0,255)');
+   //          context.fillStyle = g1;
+   //          context.fillRect(0, 0, 400, 300);
+
+//橡皮擦
+//其中 x 和 y 表示起始点坐标，width 和 height 表示这块“橡皮擦”的宽高。举个例子：
+
+
+// var c = document.getElementById("myCanvas");
+// var ctx = c.getContext("2d"); //获取该canvas的2D绘图环境对象
+
+// ctx.fillStyle = "red";   
+// ctx.fillRect(0,0,c.width,c.height);  
+// ctx.beginPath();
+// ctx.fillStyle = "blue";   
+// ctx.fillRect(10,20,60,60);  
+// ctx.clearRect(20,20,80,50);  //擦除以（20,20）坐标为起点，宽高为80*50的区域
+
+//多边形
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d"); //获取该canvas的2D绘图环境对象
+
+//定义样式
+ctx.fillStyle = "blue";   
+ctx.strokeStyle = "red";
+ctx.lineWidth = "8";
+ctx.lineJoin = "round";
+
+//绘制多边形
+ctx.moveTo(10,10);
+ctx.lineTo(100,30);
+ctx.lineTo(120,80);
+ctx.lineTo(60,60);
+ctx.lineTo(10,10);
+ctx.closePath();  //闭合多边形路径
+ctx.stroke();  //描边
+ctx.fill();    //填充
+
+
+</script>
+</body>
+</html>
